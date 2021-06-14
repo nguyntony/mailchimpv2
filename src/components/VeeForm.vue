@@ -2,14 +2,15 @@
   <VeeForm v-slot="{ handleSubmit }" as="div" v-if="!formState.completed">
     <form @submit.prevent="handleSubmit($event, onSubmit)">
       <div class="field">
-        <label for="name">Name</label>
-        <Field
-          name="name"
-          type="text"
-          rules="required|alpha_spaces"
-          id="name"
-        />
-        <ErrorMessage name="name" />
+        <Field name="name" rules="required" v-slot="{ field, errors }">
+          <label for="name">Name</label>
+          <input
+            v-bind="field"
+            type="text"
+            :class="['form__input', errors[0] ? 'invalid' : '']"
+          />
+          <span class="invalid">{{ errors[0] }}</span>
+        </Field>
       </div>
       <div class="field">
         <label for="email">Email</label>
@@ -79,6 +80,14 @@ export default {
 </script>
 
 <style>
+input.invalid {
+  border: 1px solid red;
+  border-radius: 2px;
+}
+span.invalid {
+  color: red;
+}
+
 /* spinner */
 .lds-roller {
   display: inline-block;
