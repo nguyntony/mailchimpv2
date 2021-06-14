@@ -75,7 +75,23 @@ The `Form` component is renamed to `VeeForm` to avoid confusion because you will
 ### User data
 Traditionally you will have to use `v-model` to bind certain values along with the data properties but with this library, you do not need to. Simply pass the `values` prop to  your `onSubmit` function and you will have access to the form data. 
 
-If you’d like you can still use `v-model`.
+```
+methods: {
+	onSubmit(data) {
+		console.log(data)
+	}
+}
+```
+The `data` object is essentially your form data, the keys will match the `name` property that you use for each `field` component. However, if you’d like you can still use `v-model`.
+
+```
+<Field name="email" type="email" rules="required|email" id="email" />
+<ErrorMessage name="email" />
+```
+This is a pretty standard way for you to get started with the form validation. This is the syntax for each field that you’d like to have.
+
+### Handling form submission
+Refer to this [page](https://vee-validate.logaretm.com/v4/guide/components/handling-forms#using-handlesubmit) as an example of how to use the `handleSubmit` method. 
 
 ### CSS
 Refer to this [page](https://vee-validate.logaretm.com/v4/guide/components/validation#using-the-field-slot-props) for more information. This method will allow you greater freedom on how the styling.
