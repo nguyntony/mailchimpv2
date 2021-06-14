@@ -1,17 +1,15 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <h1>vee validate v4 form</h1>
+  <VeeForm />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import VeeForm from './components/VeeForm.vue';
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  components: { VeeForm },
+};
 </script>
 
 <style>
